@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project AlphaQ — Crypto Trading AI</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- marked.js for markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">
+      <span class="logo-icon">▲</span>
+      <div>
+        <div class="logo-title">AlphaQ</div>
+        <div class="logo-sub">Institutional Trading AI</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="section-label">PROVIDER</div>
+    <div class="provider-badge" id="providerBadge">Connecting...</div>
+    <div class="model-badge" id="modelBadge"></div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="section-label">SESSION</div>
+    <div class="session-id" id="sessionDisplay">Initializing...</div>
+    <button class="btn-secondary" id="newSessionBtn">⊕ New Session</button>
+    <button class="btn-danger" id="clearSessionBtn">✕ Clear History</button>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="section-label">QUICK QUERIES</div>
+    <div class="quick-queries" id="quickQueries">
+      <button class="quick-btn" data-q="Analyze BTC current market structure on the daily and 4H timeframes.">BTC Market Structure</button>
+      <button class="quick-btn" data-q="What are the key BTC liquidation levels above and below current price? Include funding rate and OI analysis.">BTC Liquidation Map</button>
+      <button class="quick-btn" data-q="Give me a high-probability ETH long setup with entry, stop loss, TP1, TP2, TP3 and R:R.">ETH Long Setup</button>
+      <button class="quick-btn" data-q="Analyze the current macro environment: Fed policy, DXY trend, and their impact on crypto.">Macro Analysis</button>
+      <button class="quick-btn" data-q="Evaluate this strategy: buy when RSI < 30, sell when RSI > 70 on the 4H chart. Calculate win rate, RR, drawdown, and expectancy.">Strategy Evaluation</button>
+      <button class="quick-btn" data-q="What does extreme negative funding rate signal for BTC? How should I position?">Funding Rate Signal</button>
+      <button class="quick-btn" data-q="Identify current BTC order blocks, fair value gaps, and change of character on the daily chart.">Smart Money Analysis</button>
+      <button class="quick-btn" data-q="How does DXY strength correlate with BTC price action? What is the current correlation?">DXY Correlation</button>
+    </div>
+  </div>
+
+  <div class="sidebar-footer">
+    <div class="disclaimer">⚠️ Educational only. Not financial advice.</div>
+  </div>
+</aside>
+
+<!-- ===== MAIN ===== -->
+<main class="main">
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+    <div class="topbar-title">
+      <span class="topbar-name">Project AlphaQ</span>
+      <span class="topbar-tag">INSTITUTIONAL TRADING INTELLIGENCE</span>
+    </div>
+    <div class="topbar-status">
+      <span class="status-dot" id="statusDot"></span>
+      <span id="statusText">Connecting</span>
+    </div>
+  </header>
+
+  <!-- Analysis step tracker -->
+  <div class="step-tracker" id="stepTracker">
+    <div class="step-tracker-label">ANALYSIS COVERAGE</div>
+    <div class="steps">
+      <span class="step-chip" id="step1" data-step="1. Macro Context">1 Macro</span>
+      <span class="step-chip" id="step2" data-step="2. Multi-Timeframe Analysis">2 MTF</span>
+      <span class="step-chip" id="step3" data-step="3. Smart Money & On-Chain">3 Smart Money</span>
+      <span class="step-chip" id="step4" data-step="4. Trade Construction">4 Trade</span>
+      <span class="step-chip" id="step5" data-step="5. Risk Management">5 Risk</span>
+    </div>
+  </div>
+
+  <!-- Chat window -->
+  <div class="chat-window" id="chatWindow">
+    <!-- Welcome message injected by JS -->
+  </div>
+
+  <!-- Context bar -->
+  <div class="context-bar">
+    <input
+      type="text"
+      id="contextInput"
+      class="context-input"
+      placeholder="Optional context: e.g. BTC at 67,500 • Funding: +0.01% • Daily above 200MA"
+    />
+  </div>
+
+  <!-- Input area -->
+  <div class="input-area">
+    <textarea
+      id="messageInput"
+      class="message-input"
+      placeholder="Ask AlphaQ anything about crypto markets, setups, risk, or strategy..."
+      rows="1"
+    ></textarea>
+    <button class="send-btn" id="sendBtn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
+    </button>
+  </div>
+
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
